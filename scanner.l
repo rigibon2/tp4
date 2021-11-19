@@ -23,7 +23,7 @@ entero                                          return ENTERO;
 leer                                            return LEER;
 escribir                                        return ESCRIBIR;
 fin-programa                                    return FIN_PROGRAMA;
-{Letra}{Letra_Digito}*                          yylval = strdup(yytext); return IDENTIFICADOR;}
+{Letra}{Letra_Digito}*                          {yylval = strdup(yytext); return IDENTIFICADOR;}
 {Digito}+                                       {yylval = strdup(yytext); return CONSTANTE;}
 "("                                             return '(';
 ")"                                             return ')';
