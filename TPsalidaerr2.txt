@@ -1,0 +1,19 @@
+programa prueba
+entero var1
+entero var2
+entero var2
+linea #5: Error léxico: cadena desconocida: &!@
+linea #5: syntax error, unexpected ';', expecting IDENTIFICADOR
+leer
+entero total
+linea #8: Error léxico: constante inválida: 32z
+inversion
+multiplicacion
+suma
+asignacion
+linea #9: Error léxico: identificador inválido: var2&2@1
+linea #9: syntax error, unexpected ASIGNACION
+modulo
+escribir
+NO PERTENECE
+ERRORES SINTACTICOS: 2, ERRORES LEXICOS: 3

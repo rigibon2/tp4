@@ -9,12 +9,12 @@
 %option nounput
 %option yylineno
 
-Letra									[[:alpha:]]
-Digito									[0-9]
-Letra_Digito								[[:alnum:]]
+Letra								[[:alpha:]]
+Digito								[0-9]
+Letra_Digito						[[:alnum:]]
 Espacio								[[:space:]]
-Asignacion								"<<"
-Comentario								"//".*
+Asignacion							"<<"
+Comentario							"//".*
 Otros								[[:punct:]]{-}[();,+\-*/%]
 
 %%
@@ -36,9 +36,9 @@ fin-programa								    return FIN_PROGRAMA;
 "%"									            return '%';
 
 {Asignacion} 								                return ASIGNACION;
-{Otros}+								                    {yylexerrs++; yyerror("Error léxico: cadena desconocida");}
-{Letra}{Letra_Digito}*{Otros}+({Letra_Digito}|{Otros})*		{yylexerrs++; yyerror("Error léxico: identificador inválido");}
-{Digito}+{Letra}+{Letra_Digito}*					        {yylexerrs++; yyerror("Error léxico: constante inválida");}
-{Espacio}+								|
-{Comentario}								;
+{Otros}+								                    {yylexerrs++; char error[256]; strcpy(error, "Error léxico: cadena desconocida: "); strcat(error, yytext); yyerror(error);}
+{Letra}{Letra_Digito}*{Otros}+({Letra_Digito}|{Otros})*		{yylexerrs++; char error[256]; strcpy(error, "Error léxico: identificador inválido: "); strcat(error, yytext); yyerror(error);}
+{Digito}+{Letra}+{Letra_Digito}*					        {yylexerrs++; char error[256]; strcpy(error, "Error léxico: constante inválida: "); strcat(error, yytext); yyerror(error);}
+{Espacio}+								                    |
+{Comentario}								                ;
 %%

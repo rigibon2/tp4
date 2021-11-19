@@ -1,0 +1,17 @@
+programa prueba
+entero var1
+entero var2
+leer
+entero total
+inversion
+multiplicacion
+suma
+asignacion
+suma
+parentesis
+multiplicacion
+asignacion
+modulo
+escribir
+PERTENECE
+ERRORES SINTACTICOS: 0, ERRORES LEXICOS: 0
