@@ -37,7 +37,7 @@ fin-programa                                    return FIN_PROGRAMA;
 
 {Asignacion}                                                return ASIGNACION;
 {Otros}+                                                    {yylexerrs++; char error[256]; strcpy(error, "Error léxico: cadena desconocida: "); strcat(error, yytext); yyerror(error);}
-{Letra}{Letra_Digito}*{Otros}+({Letra_Digito}|{Otros})*     yylexerrs++; char error[256]; strcpy(error, "Error léxico: identificador inválido: "); strcat(error, yytext); yyerror(error);}
+{Letra}{Letra_Digito}*{Otros}+({Letra_Digito}|{Otros})*     {yylexerrs++; char error[256]; strcpy(error, "Error léxico: identificador inválido: "); strcat(error, yytext); yyerror(error);}
 {Digito}+{Letra}+{Letra_Digito}*                            {yylexerrs++; char error[256]; strcpy(error, "Error léxico: constante inválida: "); strcat(error, yytext); yyerror(error);}
 {Espacio}+                                                  |
 {Comentario}                                                ;
